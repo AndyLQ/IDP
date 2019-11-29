@@ -1,0 +1,115 @@
+﻿@model IEnumerable<registering_try2.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="
+    font-size:40px;
+    text-align:center;
+    margin-bottom: 30px;
+    font-family:Roboto;
+
+    ">
+    Accounts</h1>
+
+
+<div
+     style="
+    width:40vw;
+    display:block;
+    margin:auto;
+    border: thin black solid;
+    font-family:Roboto;
+    
+    ">
+
+<table class="table" id="customers">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+<td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+<td>
+    @Html.DisplayFor(modelItem => item.Role)
+</td>
+<td>
+    <a asp-action="Edit" asp-route-id="@item.UserId" style="color:black; font-weight:600;">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.UserId" style="color:black; font-weight:600;">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.UserId" style="color:black; font-weight:600;">Delete</a>
+</td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+</div>
+
+
+<p>
+    <a asp-action="Create"
+       style="
+    padding:15px;
+    display:block;
+    margin:auto;
+    width:200px;
+    text-align:center;
+    background:linear-gradient(130deg, rgba(0,43,101,1) 0%, rgba(0,104,208,1) 100%);
+    color:white;
+    font-weight:400;
+    text-decoration:none;
+    font-family:Roboto;
+    margin-bottom:20px;
+   font-size:22px;
+    ">
+        Create new user
+    </a>
+</p>
+
+<style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background:linear-gradient(130deg, rgba(0,43,101,1) 0%, rgba(0,104,208,1) 100%);
+            color: white;
+        }
+</style>

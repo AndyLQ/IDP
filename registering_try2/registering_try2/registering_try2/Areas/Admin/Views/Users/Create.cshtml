@@ -1,0 +1,94 @@
+﻿@model registering_try2.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="
+    font-size:40px;
+    text-align:center;
+    margin-bottom: 30px;
+    font-family:Roboto;
+
+    ">Create new account</h1>
+
+<div class="row" style="border: black thin solid; font-family: Roboto; width:40vw; display:block; margin: auto;">
+    <div class="col-md-4">
+        <form asp-action="Create" style="font-weight:800;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                <input asp-for="Role" class="form-control" />
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="
+    padding:15px;
+    display:block;
+    margin:auto;
+    width:200px;
+    text-align:center;
+    background:linear-gradient(130deg, rgba(0,43,101,1) 0%, rgba(0,104,208,1) 100%);
+    color:white;
+    font-weight:400;
+    text-decoration:none;
+    font-family:Roboto;
+    margin-bottom:20px;
+   font-size:22px;" >Back to List</a>
+</div>
+
+
+
+<style>
+    input, select {
+        width: 100%;
+        padding: 10px 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background:linear-gradient(130deg, rgba(0,43,101,1) 0%, rgba(0,104,208,1) 100%);
+        color: white;
+        padding: 14px 10px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size:20px;
+    }
+
+
+    div {
+        border-radius: 5px;
+        padding: 10px;
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
